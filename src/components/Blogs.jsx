@@ -30,7 +30,7 @@ function Blogs() {
         if (response.ok) {
           setBlogs(data.blogs);
         } else {
-          setError(data.msg)
+          setError(data.message)
           setTimeout(()=> setError(''), 3000)
         }
       } catch (error) {

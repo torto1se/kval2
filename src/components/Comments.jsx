@@ -93,7 +93,19 @@ function Comments({ blogId }) {
 
       const data = await response.json();
       if (response.ok) {
-        setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
+        const newResponse = await fetch('http://127.0.0.1:5000/get_messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          access_token: accessToken,
+          blog_id: blogId,
+          text: newComment,
+        })
+      });
+       const newData = await newResponse.json();
+         setComments(newData.messages);
       } else {
         console.error(data.message);
       }

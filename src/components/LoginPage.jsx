@@ -10,6 +10,17 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const hadnleLogin = async () => {
+    // if(!username){
+    //   setError('Введите имя!')
+    //   setTimeout(()=> setError(''), 3000)
+    //   return 
+    // }
+    if(!password){
+      setError('Введите пароль!')
+      setTimeout(()=> setError(''), 3000)
+      return 
+    }
+
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);

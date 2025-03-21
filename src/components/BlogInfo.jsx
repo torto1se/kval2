@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 function BlogInfo() {
   const { blogId } = useParams();
-  const [blog, setBlog] = useState({});
+  const [blog, setBlog] = useState([]);
   const accessToken = localStorage.getItem('access_token');
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');

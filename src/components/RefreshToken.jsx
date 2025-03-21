@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 
 function RefreshToken() {
-  useEffect(() => {
-    const intervalId = setInterval(async () => {
+  setInterval(async () => {
       const response = await fetch('http://127.0.0.1:5000/refresh', {
         method: 'post',
         headers: {'content-type': 'application/json'},
@@ -16,13 +14,7 @@ function RefreshToken() {
       } else {
         console.log('ошибка')
       }
-
-    }, 600000)
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  }, 600000)
 
   return ( <></> );
 }
